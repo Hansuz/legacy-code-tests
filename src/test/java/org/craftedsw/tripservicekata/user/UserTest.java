@@ -7,64 +7,18 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
+
 public class UserTest {
 
     @Test
-    public void testAddFriend() {
-
-        //
-        // Initialize User
-        //
+    public void testAddUser() throws Exception {
         User u1 = new User();
         User u2 = new User();
-        User u3 = new User();
 
-        //
-        // Add User to friend u1
-        //
         u1.addFriend(u2);
-        u1.addFriend(u3);
 
-        //
-        // Create List with friends
-        //
-        List<User> friends = new ArrayList<User>();
-        friends.add(u2);
-        friends.add(u3);
-
-        //
-        // Test if u1.friends is equal as friends
-        //
-        Assertions.assertEquals(friends, u1.friends);
-    }
-
-    @Test
-    public void testGetFriend() {
-
-        //
-        // Initialize User
-        //
-        User u1 = new User();
-        User u2 = new User();
-        User u3 = new User();
-
-        //
-        // Add User to friend u1
-        //
-        u1.friends.add(u2);
-        u1.friends.add(u3);
-
-        //
-        // Create List with friends
-        //
-        List<User> friends = new ArrayList<User>();
-        friends.add(u2);
-        friends.add(u3);
-
-        //
-        // Test if u1.getFriends() is equal as friends
-        //
-        Assertions.assertEquals(friends, u1.getFriends());
+        assertTrue(u1.isFriendsWith(u2));
     }
 
     @Test
